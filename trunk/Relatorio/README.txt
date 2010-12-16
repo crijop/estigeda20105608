@@ -1,2 +1,0 @@
-Teste
-int main()
