@@ -1,4 +1,4 @@
-package eda;
+package src;
 
 public class Main
 {
