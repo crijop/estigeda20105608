@@ -1,12 +1,13 @@
 package src;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
-import javax.imageio.ImageIO;
+import javax.swing.JOptionPane;
 
+/**
+ * 
+ * */
 public class Main
 {
    /**
@@ -14,31 +15,32 @@ public class Main
     */
    public static void main(String[] args)
    {
-
+      Calendar date1 = new GregorianCalendar();
+      
       OperacoesImagem op = new OperacoesImagem();
 
-      // op.open("images/alicates.jpg");
-      // op.binarization(200);
-      // op.save("images/alicatesCizento.jpg");
+      op.open("images/alicates.bmp");
 
-      op.open("images/alicatesCizento.bmp");
+      op.binarization(240);
 
-      // op.MatrizImage();
-      // op.twoPass();
-      // op.secondPass();
-      // op.changeColor();
-      // op.save("images/teste22.bmp");
-      TwoPass tp = new TwoPass(op.bi);
+      /*
+       * criação do objecto que representa o resultado da marcação de
+       * componentes conexos
+       */
+      Calendar date2 = new GregorianCalendar();
+      double time = (((date2.getTimeInMillis() - date1.getTimeInMillis()) / 1000) + 0.5);
+
+      TwoPass tp = new TwoPass(op.wr);
       tp.executar();
+      tp.save("images/alicates_Cores.bmp");
 
-      File ficheiro;
-      ficheiro = new File("images/treta.bmp");
-      try
-      {
-         ImageIO.write(tp.img_marcas, "bmp", ficheiro);
-      } catch (IOException ex)
-      {
-         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-      }
+      op.save("images/alicates_Monocromatico.bmp");
+      
+      JOptionPane.showMessageDialog(null,
+               "Image Conversion Complete!\nImage Conversion Time: " + time
+                        + "s.", "Information", JOptionPane.INFORMATION_MESSAGE);
+
+      
+      System.err.println("Image Conversion Time: " + time + "s.");
    }
 }
