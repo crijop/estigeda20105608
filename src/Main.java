@@ -1,12 +1,11 @@
 package src;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
-import javax.swing.JOptionPane;
-
 /**
+ * @author Carlos
  * 
+ */
+/**
+ * Class Main
  * */
 public class Main
 {
@@ -15,32 +14,21 @@ public class Main
     */
    public static void main(String[] args)
    {
-      Calendar date1 = new GregorianCalendar();
-      
       OperacoesImagem op = new OperacoesImagem();
-
       op.open("images/alicates.bmp");
-
       op.binarization(240);
 
       /*
        * criação do objecto que representa o resultado da marcação de
        * componentes conexos
        */
-      Calendar date2 = new GregorianCalendar();
-      double time = (((date2.getTimeInMillis() - date1.getTimeInMillis()) / 1000) + 0.5);
-
       TwoPass tp = new TwoPass(op.wr);
+      double tempo = System.nanoTime();
       tp.executar();
+      tempo = System.nanoTime() - tempo;
+      System.out.println(tempo * 0.000000001 + " segundos");
       tp.save("images/alicates_Cores.bmp");
-
       op.save("images/alicates_Monocromatico.bmp");
-      
-      JOptionPane.showMessageDialog(null,
-               "Image Conversion Complete!\nImage Conversion Time: " + time
-                        + "s.", "Information", JOptionPane.INFORMATION_MESSAGE);
 
-      
-      System.err.println("Image Conversion Time: " + time + "s.");
    }
 }
