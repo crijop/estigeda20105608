@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
 
 /**
  * @author Carlos
- * 
+ * 2010
  */
 public class OperacoesImagem
 {
@@ -22,7 +22,7 @@ public class OperacoesImagem
    public WritableRaster wr;
 
    /**
-    * 
+    * Construtor da Class OperacoesImagem
     * */
    public OperacoesImagem()
    {
@@ -31,7 +31,9 @@ public class OperacoesImagem
    }
    
    /**
-    * 
+    * Metodo open
+    * @param nome_ficheiro
+    *           - nome do ficheiro para que vai ser aberto
     * */
    public void open(String nome_ficheiro)
    {
@@ -49,7 +51,9 @@ public class OperacoesImagem
    }
    
    /**
-    * 
+    * Metodo Save
+    * @param nome_ficheiro
+    *           - nome do ficheiro para que vai ser guardado
     * */
    public void save(String nome_ficheiro)
    {
@@ -65,7 +69,8 @@ public class OperacoesImagem
    }
 
    /**
-    * 
+    * Metodo getWidth
+    * @return bi.getWidth
     * */
    public int getWidth()
    {
@@ -73,7 +78,8 @@ public class OperacoesImagem
    }
 
    /**
-    * 
+    * Metodo getHeight
+    * @return bi.getHeight
     * */
    public int getHeight()
    {
@@ -81,7 +87,8 @@ public class OperacoesImagem
    }
 
    /**
-    * 
+    * Metodo binarization
+    * @param th - valor inteiro
     * */
    public void binarization(int th)
    {

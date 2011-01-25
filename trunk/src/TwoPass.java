@@ -36,7 +36,8 @@ public class TwoPass
    private LinkedList<HashSet<Integer>> listaEquivalentes = null;
 
    /**
-    * 
+    * Construtor da Class TwoPass
+    * @param wr_img_entrada - do tipo WritableRaster
     * */
    public TwoPass(WritableRaster wr_img_entrada)
    {
@@ -67,7 +68,9 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo Save
+    * @param nome_ficheiro
+    *           - nome do ficheiro para que vai ser guardado
     * */
    public void save(String nome_ficheiro)
    {
@@ -84,7 +87,8 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo executar
+    * @return this.img_marcas - do tipo BufferedImage
     * */
    public BufferedImage executar()
    {
@@ -175,7 +179,11 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo porPixel 
+    * @param col - do tipo int
+    * @param line - do tipo int
+    * @param valor - do tipo int
+    * @param wr - do tipo WritableRaster
     * */
    private void porPixel(int col, int line, int valor, WritableRaster wr)
    {
@@ -187,7 +195,11 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo buscarPixel
+    * @param col - do tipo int
+    * @param line - do tipo int
+    * @param wr - do tipo WritableRaster
+    * @return cor[0]
     * */
    private int buscarPixel(int col, int line, WritableRaster wr)
    {
@@ -197,7 +209,10 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo buscarMarcasVizinhas
+    * @param col - do tipo int
+    * @param line - do tipo int
+    * @return marcasVizinhas
     * */
    private int[] buscarMarcasVizinhas(int col, int line)
    {
@@ -210,7 +225,9 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo contarMarcasDiferentes
+    * @param marcasVizinhas - do tipo int[]
+    * @return conjuntoMarcasDiferentes.size()
     * */
    private int contarMarcasDiferentes(int[] marcasVizinhas)
    {
@@ -229,7 +246,9 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo buscarMarcaMaisBaixa
+    * @param marcasVizinhas - do tipo int[]
+    * @return minimo
     * */
    private int buscarMarcaMaisBaixa(int[] marcasVizinhas)
    {
@@ -245,7 +264,9 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo AcharConjunto
+    * @param k - do tipo int
+    * @return conjunto
     * */
    private HashSet<Integer> AcharConjunto(int k)
    {
@@ -266,7 +287,7 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo resolverEquivalencias
     * */
    private void resolverEquivalencias()
    {
@@ -310,7 +331,7 @@ public class TwoPass
    }
 
    /**
-    * 
+    * Metodo colorizar
     * */
    private void colorizar()
    {
